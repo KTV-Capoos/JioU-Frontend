@@ -3,7 +3,9 @@ import { Colors } from "../Theme";
 
 export const Main = styled.div`
   background-color: ${Colors.secondary};
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
+  padding: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,8 +1,8 @@
 import React from "react";
 import { FormField } from "semantic-ui-react";
-import { ErrorMessage, FieldContainer } from "./FieldElements";
+import { ErrorMessage, FieldContainer } from "./SignupFormFieldElements";
 
-function Field(props) {
+function SignupFormField(props) {
   return (
     <FieldContainer>
       <FormField>
@@ -23,4 +23,4 @@ function Field(props) {
   );
 }
 
-export default Field;
+export default SignupFormField;
