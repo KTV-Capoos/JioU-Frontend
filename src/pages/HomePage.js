@@ -1,12 +1,16 @@
+import React from "react";
 import { Button, Image } from "semantic-ui-react";
 import Logo from "../assets/Logo.png";
-import { Main } from "./HomePageElements";
+import { ButtonContainer, Main } from "./HomePageElements";
 
 function Home() {
   return (
     <Main>
       <Image src={Logo} height="300px" />
-      <Button>Log In</Button>
+      <ButtonContainer>
+        <Button>Log In</Button>
+        <Button>Sign Up</Button>
+      </ButtonContainer>
     </Main>
   );
 }

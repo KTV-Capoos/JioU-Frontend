@@ -9,3 +9,9 @@ export const Main = styled.div`
   align-items: center;
   flex-direction: column;
 `;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+  dlex-direction: row;
+`;
