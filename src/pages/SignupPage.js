@@ -12,6 +12,7 @@ import { useForm } from "react-hook-form";
 import SignupFormField from "../components/SignupFormField";
 import SignupFormSelect from "../components/SignupFormSelect";
 import BackArrow from "../assets/Back Arrow.svg";
+import { Link } from "react-router-dom";
 
 function Signup() {
   const {
@@ -30,7 +31,9 @@ function Signup() {
   return (
     <Main>
       <TitleSection>
-        <NavButton src={BackArrow} width="30rem" />
+        <Link to="/">
+          <img src={BackArrow} width="25rem" />
+        </Link>
         <Title>Sign Up</Title>
       </TitleSection>
       <InputSection>
