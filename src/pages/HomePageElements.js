@@ -3,6 +3,7 @@ import { Colors } from "../Theme";
 
 export const Main = styled.div`
   background-color: ${Colors.primary};
+  width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -10,8 +11,9 @@ export const Main = styled.div`
   flex-direction: column;
 `;
 
-export const ButtonContainer = styled.div`
-  display: flex;
-  gap: 1rem;
-  dlex-direction: row;
+export const BottomText = styled.p`
+  margin: 2rem;
+  text-decoration: none;
+  color: white;
+  text-decoration: underline;
 `;

@@ -1,16 +1,29 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import { Button, Image } from "semantic-ui-react";
 import Logo from "../assets/Logo.png";
-import { ButtonContainer, Main } from "./HomePageElements";
+import { Colors } from "../Theme";
+import { BottomText, Main } from "./HomePageElements";
 
 function Home() {
   return (
     <Main>
       <Image src={Logo} height="300px" />
-      <ButtonContainer>
-        <Button>Log In</Button>
-        <Button>Sign Up</Button>
-      </ButtonContainer>
+      <Link to="/login">
+        <Button style={{ width: "10rem" }}>Log In</Button>
+      </Link>
+      <br />
+      <Link to="/signup">
+        <Button
+          style={{
+            width: "10rem",
+            border: "1px solid white",
+            background: "none",
+            color: "white",
+          }}
+        >
+          Sign Up
+        </Button>
+      </Link>
     </Main>
   );
 }
