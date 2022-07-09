@@ -1,5 +1,5 @@
 import * as React from "react";
-import Home from "./Home.js";
+import Home from "./pages/Home.js";
 
 export const App = () => {
   return <Home />;
