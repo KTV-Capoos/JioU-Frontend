@@ -3,16 +3,13 @@ import { FormField } from "semantic-ui-react";
 import { ErrorMessage, FieldContainer } from "./FieldElements";
 
 function Field(props) {
-  function capitalize(s) {
-    return s[0].toUpperCase() + s.slice(1);
-  }
   return (
     <FieldContainer>
       <FormField>
-        <label>{capitalize(props.name)}</label>
+        <label>{props.label}</label>
         <input
           name={props.name}
-          placeholder={capitalize(props.name)}
+          placeholder={props.placeholder}
           type={props.type}
           {...props.register(props.name, {
             required: props.isRequired,

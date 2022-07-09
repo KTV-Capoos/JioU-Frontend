@@ -25,6 +25,8 @@ function Signup() {
           <Field
             name="username"
             type="text"
+            label="Username"
+            placeholder="Username"
             isRequired={true}
             maxLength={150}
             error={errors.username}
@@ -35,6 +37,8 @@ function Signup() {
           <Field
             name="email"
             type="email"
+            label="Email"
+            placeholder="Email"
             isRequired={true}
             pattern={
               /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -47,6 +51,8 @@ function Signup() {
           <Field
             name="password"
             type="password"
+            label="Password"
+            placeholder="Password"
             isRequired={true}
             pattern={/^[a-zA-Z0-9]{6,}$/}
             error={errors.password}
