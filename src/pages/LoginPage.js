@@ -3,6 +3,7 @@ import { InputSection, Main, Title, TitleSection } from "./SignupPageElements";
 import { Button, Form } from "semantic-ui-react";
 import { Colors } from "../Theme";
 import { useForm } from "react-hook-form";
+import StyledFormField from "../components/StyledFormField";
 import BackArrow from "../assets/Back Arrow.svg";
 import { Link } from "react-router-dom";
 
@@ -10,8 +11,6 @@ function Loginpage() {
   const {
     register,
     handleSubmit,
-    setValue,
-    triggerValidation,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
@@ -30,7 +29,7 @@ function Loginpage() {
       </TitleSection>
       <InputSection>
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <SignupFormField
+          <StyledFormField
             name="username"
             type="text"
             label="Username"
@@ -42,7 +41,7 @@ function Loginpage() {
             register={register}
           />
 
-          <SignupFormField
+          <StyledFormField
             name="password"
             type="password"
             label="Password"

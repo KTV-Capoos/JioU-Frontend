@@ -1,6 +1,6 @@
 import React from "react";
 import { FormSelect } from "semantic-ui-react";
-import { ErrorMessage, FieldContainer } from "./SignupFormFieldElements";
+import { ErrorMessage, FieldContainer } from "./StyledFormFieldElements";
 
 function SignupFormSelect(props) {
   return (

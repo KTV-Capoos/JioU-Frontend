@@ -3,8 +3,8 @@ import { InputSection, Main, Title, TitleSection } from "./SignupPageElements";
 import { Button, Form } from "semantic-ui-react";
 import { Colors } from "../Theme";
 import { useForm } from "react-hook-form";
-import SignupFormField from "../components/SignupFormField";
-import SignupFormSelect from "../components/SignupFormSelect";
+import StyledFormField from "../components/StyledFormField";
+import StyledFormSelect from "../components/StyledFormSelect";
 import BackArrow from "../assets/Back Arrow.svg";
 import { Link } from "react-router-dom";
 
@@ -32,7 +32,7 @@ function Signup() {
       </TitleSection>
       <InputSection>
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <SignupFormField
+          <StyledFormField
             name="username"
             type="text"
             label="Username"
@@ -44,7 +44,7 @@ function Signup() {
             register={register}
           />
 
-          <SignupFormField
+          <StyledFormField
             name="email"
             type="email"
             label="Email"
@@ -58,7 +58,7 @@ function Signup() {
             register={register}
           />
 
-          <SignupFormField
+          <StyledFormField
             name="password"
             type="password"
             label="Password"
@@ -70,7 +70,7 @@ function Signup() {
             register={register}
           />
 
-          <SignupFormField
+          <StyledFormField
             name="fullName"
             type="text"
             label="Full Name (as in NRIC)"
@@ -81,7 +81,7 @@ function Signup() {
             register={register}
           />
 
-          <SignupFormField
+          <StyledFormField
             name="dateOfBirth"
             type="text"
             label="Date of Birth (DD/MM/YYYY)"
@@ -95,7 +95,7 @@ function Signup() {
             register={register}
           />
 
-          <SignupFormSelect
+          <StyledFormSelect
             name="gender"
             label="Gender"
             placeholder="Gender"
@@ -110,7 +110,7 @@ function Signup() {
             register={register}
           />
 
-          <SignupFormField
+          <StyledFormField
             name="mobileNumber"
             type="tel"
             label="Mobile Number (8 digits)"
@@ -122,7 +122,7 @@ function Signup() {
             register={register}
           />
 
-          <SignupFormField
+          <StyledFormField
             name="emergencyContactNumber"
             type="tel"
             label="Emergency Contact Number (Optional, 8 digits)"
@@ -134,7 +134,7 @@ function Signup() {
             register={register}
           />
 
-          <SignupFormSelect
+          <StyledFormSelect
             name="religion"
             label="Religion"
             placeholder="Religion"
@@ -153,7 +153,7 @@ function Signup() {
             register={register}
           />
 
-          <SignupFormSelect
+          <StyledFormSelect
             name="nationality"
             label="Nationality"
             placeholder="Nationality"
@@ -167,7 +167,7 @@ function Signup() {
             register={register}
           />
 
-          <SignupFormSelect
+          <StyledFormSelect
             name="ethnicity"
             label="Ethnicity"
             placeholder="Ethnicity"
@@ -183,7 +183,7 @@ function Signup() {
             register={register}
           />
 
-          <SignupFormField
+          <StyledFormField
             name="anyMedicalConditions"
             type="text"
             label="Any Medical Conditions (If none, please put `NIL`)"
@@ -194,7 +194,7 @@ function Signup() {
             register={register}
           />
 
-          <SignupFormField
+          <StyledFormField
             name="allergies"
             type="text"
             label="Allergies (If none, please put `NIL`)"
@@ -205,7 +205,7 @@ function Signup() {
             register={register}
           />
 
-          <SignupFormField
+          <StyledFormField
             name="dietaryRequirements"
             type="text"
             label="Dietary Requirements (If none, please put `NIL`)"
