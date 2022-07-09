@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  InputSection,
-  Main,
-  NavButton,
-  Title,
-  TitleSection,
-} from "./SignupPageElements";
+import { InputSection, Main, Title, TitleSection } from "./SignupPageElements";
 import { Button, Form } from "semantic-ui-react";
 import { Colors } from "../Theme";
 import { useForm } from "react-hook-form";
