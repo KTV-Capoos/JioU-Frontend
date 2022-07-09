@@ -80,9 +80,22 @@ function EventsPage() {
       </NavBarContainer>
       <ContentContainer>
         <EventContainer>
-          <EventCardComponent />
-          <EventCardComponent />
-          <EventCardComponent />
+          <EventCardComponent
+            name={"Badminton Session"}
+            duration={2}
+            price={2}
+            date={"9/7/2022"}
+            time={"08:00"}
+            location={"Central, Singapore"}
+          />
+          <EventCardComponent
+            name={"Totebag Workshop"}
+            duration={2}
+            price={7}
+            date={"21/7/2022"}
+            time={"10:00"}
+            location={"Central, Singapore"}
+          />
         </EventContainer>
         <FilterContainer>
           <Input
