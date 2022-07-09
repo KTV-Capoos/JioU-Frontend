@@ -12,8 +12,8 @@ export const Main = styled.div`
 
 export const Title = styled.p`
   color: ${Colors.primary};
-  font-size: 3rem;
-  font-weight: 500;
+  font-size: 2rem;
+  font-weight: 600;
 `;
 
 export const InputSection = styled.div`
