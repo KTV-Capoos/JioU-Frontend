@@ -20,7 +20,6 @@ import {
   Dropdown,
   Checkbox,
   Input,
-  Search,
   Icon,
 } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
@@ -40,12 +39,12 @@ function EventsPage() {
     { key: "JioU", name: "Jio U" },
     {
       key: "myEvents",
-      onclick: () => history.push("/myevents"),
+      // onclick: () => history.push("/myevents"),
       name: "My Events",
     },
     {
       key: "profile",
-      onclick: () => history.push("profile"),
+      // onclick: () => history.push("profile"),
       name: "Profile",
     },
   ];
@@ -82,18 +81,23 @@ function EventsPage() {
         <EventContainer>
           <EventCardComponent
             name={"Badminton Session"}
-            duration={2}
             price={2}
             date={"9/7/2022"}
-            time={"08:00"}
+            time={"08:00-10:00"}
             location={"Central, Singapore"}
           />
           <EventCardComponent
             name={"Totebag Workshop"}
-            duration={2}
             price={7}
             date={"21/7/2022"}
-            time={"10:00"}
+            time={"10:00-12:00"}
+            location={"Central, Singapore"}
+          />
+
+          <EventCardComponent
+            name={"Painting Workshop"}
+            date={"21/7/2022"}
+            time={"10:00-12:00"}
             location={"Central, Singapore"}
           />
         </EventContainer>

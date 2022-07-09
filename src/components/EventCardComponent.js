@@ -6,30 +6,20 @@ import {
   EventHeaderContainer,
   EventTitle,
   EventDescription,
-  DurationContainer,
-  DurationText,
 } from "./EventCardElements";
 
-const EventCardComponent = ({
-  name,
-  duration,
-  price,
-  date,
-  time,
-  location,
-}) => {
+const EventCardComponent = ({ name, price, date, time, location, image }) => {
   return (
     <EventCard>
       <TextContainer>
         <EventHeaderContainer>
           <EventTitle>{name}</EventTitle>
-          <DurationContainer>
-            <DurationText>{duration}hr</DurationText>
-          </DurationContainer>
         </EventHeaderContainer>
-        <EventDescription>Price: ${price} per person</EventDescription>
-        <EventDescription>Date: {date} </EventDescription>
-        <EventDescription>Time: {time} AM</EventDescription>
+        {price && (
+          <EventDescription>Price: ${price} per person</EventDescription>
+        )}
+        <EventDescription>Date: {date}</EventDescription>
+        <EventDescription>Time: {time}</EventDescription>
         <EventDescription>Location: {location}</EventDescription>
       </TextContainer>
       <ImageContainer />

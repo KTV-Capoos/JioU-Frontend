@@ -26,17 +26,6 @@ export const EventHeaderContainer = styled.div`
   align-content: center;
 `;
 
-export const DurationContainer = styled.div`
-  background-color: ${Colors.lightGrey};
-  border-radius: 8px;
-  padding: 5px 5px;
-`;
-
-export const DurationText = styled.div`
-  font-color: ${Colors.grey};
-  font-size: 1.5rem;
-`;
-
 export const EventTitle = styled.div`
   font-size: 2rem;
   font-color: ${Colors.primary};
