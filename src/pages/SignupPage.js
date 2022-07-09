@@ -1,10 +1,17 @@
 import React from "react";
-import { InputSection, Main, Title } from "./SignupPageElements";
+import {
+  InputSection,
+  Main,
+  NavButton,
+  Title,
+  TitleSection,
+} from "./SignupPageElements";
 import { Button, Form } from "semantic-ui-react";
 import { Colors } from "../Theme";
 import { useForm } from "react-hook-form";
 import SignupFormField from "../components/SignupFormField";
 import SignupFormSelect from "../components/SignupFormSelect";
+import BackArrow from "../assets/Back Arrow.svg";
 
 function Signup() {
   const {
@@ -22,7 +29,10 @@ function Signup() {
 
   return (
     <Main>
-      <Title>Sign Up</Title>
+      <TitleSection>
+        <NavButton src={BackArrow} width="30rem" />
+        <Title>Sign Up</Title>
+      </TitleSection>
       <InputSection>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <SignupFormField

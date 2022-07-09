@@ -16,6 +16,21 @@ export const Title = styled.p`
   color: ${Colors.primary};
   font-size: 2rem;
   font-weight: 600;
+  margin: 0;
+`;
+
+export const NavButton = styled.img`
+  width: 2rem;
+  position: absolute;
+  left: 0;
+`;
+
+export const TitleSection = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50vw;
+  position: relative;
 `;
 
 export const InputSection = styled.div`
