@@ -1,6 +1,6 @@
 import { Button, Image } from "semantic-ui-react";
 import Logo from "../assets/Logo.png";
-import { Main } from "./HomeElements";
+import { Main } from "./HomePageElements";
 
 function Home() {
   return (
