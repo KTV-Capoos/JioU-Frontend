@@ -3,7 +3,6 @@ import { Colors } from "../Theme";
 
 export const EventCard = styled.div`
   background-color: ${Colors.veryLightGrey};
-  max-width: 60%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
