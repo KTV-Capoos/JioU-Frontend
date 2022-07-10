@@ -67,7 +67,7 @@ function EventDetailsCard(props) {
       <Title>{props.title}</Title>
       <DisplayImage src={JurongLakeGardens} />
       <Description>{props.description}</Description>
-      <Description>We jio you to the event!</Description>
+      <Description>We Jio U to the event!</Description>
       {ActionButton(props.status)}
     </Card>
   );

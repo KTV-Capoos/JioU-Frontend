@@ -21,7 +21,7 @@ export const Title = styled.p`
 
 export const DisplayImage = styled.img`
   width: 100%;
-  height: auto;
+  height: 60%;
   margin: 1rem 0;
 `;
 
