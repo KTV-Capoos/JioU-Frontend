@@ -6,6 +6,7 @@ import {
   ContainerA,
   ContainerB,
   ContainerC,
+  ChatContainer,
 } from "./EventPageElements";
 import EventInfoCard from "../components/EventInfoCard";
 import EventDetailsCard from "../components/EventDetailsCard";
@@ -50,7 +51,9 @@ function EventPage(props) {
               organizer={props.organizer}
             />
           </ContainerB>
-          <ContainerC>Hi</ContainerC>
+          <ContainerC>
+            <ChatContainer>Group Chat</ChatContainer>
+          </ContainerC>
         </Main>
       );
     } else {
