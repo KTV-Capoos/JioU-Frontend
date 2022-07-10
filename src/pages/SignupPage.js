@@ -6,10 +6,11 @@ import { useForm } from "react-hook-form";
 import StyledFormField from "../components/StyledFormField";
 import StyledFormSelect from "../components/StyledFormSelect";
 import BackArrow from "../assets/Back Arrow.svg";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { post } from "../utils/request";
 
 function Signup() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -20,7 +21,7 @@ function Signup() {
   const onSubmit = (data) => {
     post("/auth/signup/", data)
       .then((res) => {
-        Navigate("/login", { replace: true });
+        navigate("/login", { replace: true });
       })
       .catch((err) => {
         document.getElementById("error").innerText = err.response.data.error;
