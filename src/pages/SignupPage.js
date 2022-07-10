@@ -7,26 +7,24 @@ import StyledFormField from "../components/StyledFormField";
 import StyledFormSelect from "../components/StyledFormSelect";
 import BackArrow from "../assets/Back Arrow.svg";
 import { Link, Navigate } from "react-router-dom";
-import {post} from "../utils/request";
+import { post } from "../utils/request";
 
 function Signup() {
   const {
     register,
     handleSubmit,
     setValue,
-    triggerValidation,
+    trigger,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    post("/auth/signup/", data).then(
-      (res) => {
+    post("/auth/signup/", data)
+      .then((res) => {
         Navigate("/login", { replace: true });
-      }
-    ).catch(
-      (err) => {
+      })
+      .catch((err) => {
         document.getElementById("error").innerText = err.response.data.error;
-      }
-    )
+      });
     console.log(data);
     console.log(errors);
   };
@@ -35,7 +33,7 @@ function Signup() {
     <Main>
       <TitleSection>
         <Link to="/">
-          <img src={BackArrow} width="25rem" alt="<"/>
+          <img src={BackArrow} width="25rem" alt="<" />
         </Link>
         <Title>Sign Up</Title>
       </TitleSection>
@@ -52,7 +50,6 @@ function Signup() {
             errorMessage="Please check the username"
             register={register}
           />
-
           <StyledFormField
             name="email"
             type="email"
@@ -114,7 +111,7 @@ function Signup() {
               { text: "Other", value: "others" },
             ]}
             setValue={setValue}
-            triggerValidation={triggerValidation}
+            triggerValidation={trigger}
             isRequired={true}
             register={register}
           />
@@ -157,7 +154,7 @@ function Signup() {
               { text: "Other", value: "others" },
             ]}
             setValue={setValue}
-            triggerValidation={triggerValidation}
+            triggerValidation={trigger}
             isRequired={true}
             register={register}
           />
@@ -171,7 +168,7 @@ function Signup() {
               { text: "Other", value: "others" },
             ]}
             setValue={setValue}
-            triggerValidation={triggerValidation}
+            triggerValidation={trigger}
             isRequired={true}
             register={register}
           />
@@ -187,7 +184,7 @@ function Signup() {
               { text: "Other", value: "others" },
             ]}
             setValue={setValue}
-            triggerValidation={triggerValidation}
+            triggerValidation={trigger}
             isRequired={true}
             register={register}
           />
@@ -224,7 +221,7 @@ function Signup() {
             errorMessage="Please check the dietary requirements"
             register={register}
           />
-          <div id="error"></div>
+          <div id="error" />
           <Button
             primary
             style={{ backgroundColor: `${Colors.primary}`, width: "100%" }}
