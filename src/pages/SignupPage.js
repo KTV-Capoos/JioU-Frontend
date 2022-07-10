@@ -67,7 +67,7 @@ function Signup() {
           <StyledFormField
             name="password"
             type="password"
-            label="Password"
+            label="Password (At least 6 characters long)"
             placeholder="Password"
             isRequired={true}
             pattern={/^[a-zA-Z0-9]{6,}$/}
@@ -90,12 +90,10 @@ function Signup() {
           <StyledFormField
             name="dob"
             type="text"
-            label="Date of Birth (DD/MM/YYYY)"
+            label="Date of Birth (YYYY-MM-DD)"
             placeholder="Date of Birth"
             isRequired={true}
-            pattern={
-              /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/i
-            }
+            pattern={/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/i}
             error={errors.dob}
             errorMessage="Please check the date of birth"
             register={register}
