@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button, Image } from "semantic-ui-react";
 import Logo from "../assets/Logo.png";
-import { Colors } from "../Theme";
-import { BottomText, Main } from "./HomePageElements";
+import { Main } from "./HomePageElements";
 
 function Home() {
   return (

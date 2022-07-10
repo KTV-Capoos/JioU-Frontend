@@ -10,10 +10,3 @@ export const Main = styled.div`
   align-items: center;
   flex-direction: column;
 `;
-
-export const BottomText = styled.p`
-  margin: 2rem;
-  text-decoration: none;
-  color: white;
-  text-decoration: underline;
-`;
