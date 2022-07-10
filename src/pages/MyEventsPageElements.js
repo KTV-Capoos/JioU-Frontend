@@ -9,6 +9,7 @@ export const Main = styled.div`
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
+  padding-top: 40px;
 `;
 
 export const HeaderText = styled.div`

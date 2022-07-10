@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const NavBarContainer = styled.div`
   background-color: white;
-  height: 50px;
-  display: flex;
-  absolute: fixed;
+  position: fixed;
+  width: 100vw;
+  overflow: hidden;
+  z-index: 10;
 `;

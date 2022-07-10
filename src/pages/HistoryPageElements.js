@@ -3,12 +3,13 @@ import { Colors } from "../Theme";
 
 export const Main = styled.div`
   background-color: ${Colors.veryLightGrey};
-  height: inherit;
+  height: 100vh;
 `;
 
 export const ContentContainer = styled.div`
-  height: 100%;
-  background-color: ${Colors.veryLightGrey};
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
 `;
 
 export const EventContainer = styled.div`

@@ -6,14 +6,9 @@ export const Main = styled.div`
   height: 100%;
 `;
 
-export const NavBarContainer = styled.div`
-  background-color: white;
-  height: 50px;
-  display: flex;
-`;
-
 export const ContentContainer = styled.div`
   display: flex;
+  padding-top: 40px;
 `;
 
 export const EventContainer = styled.div`

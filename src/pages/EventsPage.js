@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Main,
   EventContainer,
@@ -6,20 +7,11 @@ import {
   FilterContainer,
   FilterCard,
   DatesFilterContainer,
-  CategoriesFilterContainer,
   BudgetFilterContainer,
   FilterSectionTitle,
   MaxPriceContainer,
 } from "./EventsPageElements";
-import {
-  Divider,
-  Form,
-  Radio,
-  Dropdown,
-  Checkbox,
-  Input,
-  Icon,
-} from "semantic-ui-react";
+import { Divider, Form, Radio, Checkbox, Input, Icon } from "semantic-ui-react";
 import EventCardComponent from "../components/EventCardComponent";
 import NavBarComponent from "../components/NavBarComponent";
 
@@ -89,18 +81,20 @@ function EventsPage() {
               if (searchValue && event.name.includes(searchValue)) {
                 temp = event;
               }
-              if (freeFilter === true && event.price === 0) {
+              if (freeFilter && event.price === 0) {
                 temp = event;
               }
               if (temp) {
                 return (
-                  <EventCardComponent
-                    name={temp.name}
-                    price={temp.price}
-                    date={temp.date}
-                    time={temp.time}
-                    location={temp.location}
-                  />
+                  <Link to="/events">
+                    <EventCardComponent
+                      name={temp.name}
+                      price={temp.price}
+                      date={temp.date}
+                      time={temp.time}
+                      location={temp.location}
+                    />
+                  </Link>
                 );
               }
             })}
@@ -152,14 +146,14 @@ function EventsPage() {
               <FilterSectionTitle>Budget</FilterSectionTitle>
               <Checkbox
                 label="Free"
-                value={true}
+                value={"true"}
                 onChange={(e, { value }) => {
-                  if (value === true) setFreeFilter(true);
+                  if (value === "true") setFreeFilter(true);
                   else setFreeFilter(false);
                 }}
               />
               <MaxPriceContainer>
-                <div>Max Price (SGD):</div>
+                <div>Max Price (SGD): </div>
                 <Input
                   placeholder="50"
                   onChange={(e, { value }) => setBudgetFilter(value)}

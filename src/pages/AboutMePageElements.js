@@ -10,6 +10,7 @@ export const Main = styled.div`
 export const ContentContainer = styled.div`
   height: 100%;
   background-color: ${Colors.veryLightGrey};
+  padding-top: 40px;
 `;
 
 export const HeaderContainer = styled.div`
@@ -18,7 +19,7 @@ export const HeaderContainer = styled.div`
 
 export const HeaderText = styled.div`
   margin: 30px 0px 0px 20px;
-  font-size: 1.5rem;
+  font-size: 2rem;
 `;
 
 export const ButtonContainer = styled.div`
