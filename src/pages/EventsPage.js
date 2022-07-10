@@ -78,12 +78,15 @@ function EventsPage() {
           {eventDetails &&
             eventDetails.map((event) => {
               let temp = event;
-              if (searchValue && event.name.includes(searchValue)) {
-                temp = event;
+              console.log(searchValue);
+              if (searchValue && !event.name.includes(searchValue)) {
+                return
               }
+
               if (freeFilter && event.price === 0) {
                 temp = event;
               }
+              console.log(freeFilter);
               if (temp) {
                 return (
                   <Link to="/events">
@@ -148,7 +151,7 @@ function EventsPage() {
                 label="Free"
                 value={"true"}
                 onChange={(e, { value }) => {
-                  if (value === "true") setFreeFilter(true);
+                  if (value === "true") setFreeFilter(true) 
                   else setFreeFilter(false);
                 }}
               />
