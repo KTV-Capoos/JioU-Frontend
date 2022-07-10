@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   Main,
-  NavBarContainer,
   EventContainer,
   ContentContainer,
   FilterContainer,
@@ -14,7 +13,6 @@ import {
 } from "./EventsPageElements";
 import {
   Divider,
-  Menu,
   Form,
   Radio,
   Dropdown,
@@ -22,12 +20,10 @@ import {
   Input,
   Icon,
 } from "semantic-ui-react";
-import { useHistory } from "react-router-dom";
 import EventCardComponent from "../components/EventCardComponent";
 import NavBarComponent from "../components/NavBarComponent";
 
 function EventsPage() {
-  const history = useHistory();
   const [dateFilter, setDateFilter] = useState("");
   const [categoriesFilter, setCategoriesFilter] = useState("");
   const [budgetFilter, setBudgetFilter] = useState("");
@@ -36,6 +32,22 @@ function EventsPage() {
     setDateFilter(value);
   };
 
+  const eventDetails = [
+    {
+      name: "Badminton Session",
+      price: 2,
+      date: "9/7/2022",
+      time: "08:00-10:00",
+      location: "Central, Singapore",
+    },
+    {
+      name: "Totebag Workshop",
+      price: 7,
+      date: "21/7/2022",
+      time: "10:00-12:00",
+      location: "Central, Singapore",
+    },
+  ];
   const categories = [
     {
       key: "sports",
@@ -64,7 +76,31 @@ function EventsPage() {
       <NavBarComponent />
       <ContentContainer>
         <EventContainer>
-          <EventCardComponent
+          {eventDetails &&
+            eventDetails.map((event) => {
+              if (searchValue && event.name.includes(searchValue)) {
+                return (
+                  <EventCardComponent
+                    name={event.name}
+                    price={event.price}
+                    date={event.date}
+                    time={event.time}
+                    location={event.location}
+                  />
+                );
+              } else if (searchValue.length < 1) {
+                return (
+                  <EventCardComponent
+                    name={event.name}
+                    price={event.price}
+                    date={event.date}
+                    time={event.time}
+                    location={event.location}
+                  />
+                );
+              }
+            })}
+          {/* <EventCardComponent
             name={"Badminton Session"}
             price={2}
             date={"9/7/2022"}
@@ -77,7 +113,7 @@ function EventsPage() {
             date={"21/7/2022"}
             time={"10:00-12:00"}
             location={"Central, Singapore"}
-          />
+          /> */}
         </EventContainer>
         <FilterContainer>
           <Input

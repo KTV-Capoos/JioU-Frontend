@@ -23,7 +23,7 @@ function Loginpage() {
     <Main>
       <TitleSection>
         <Link to="/">
-          <img src={BackArrow} width="25rem" />
+          <img src={BackArrow} width="25rem" alt="back" />
         </Link>
         <Title>Login</Title>
       </TitleSection>

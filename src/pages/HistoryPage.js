@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Main, HeaderText } from "./MyEventsPageElements";
 import EventCardComponent from "../components/EventCardComponent";
 import { EventContainer, ContentContainer } from "./HistoryPageElements";

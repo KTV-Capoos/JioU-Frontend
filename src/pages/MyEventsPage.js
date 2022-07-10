@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { NavBarContainer } from "./EventsPageElements";
+import React from "react";
 import {
   Main,
   ContentContainer,
@@ -7,7 +6,6 @@ import {
   HeaderText,
 } from "./MyEventsPageElements";
 import EventCardComponent from "../components/EventCardComponent";
-import { Menu } from "semantic-ui-react";
 import NavBarComponent from "../components/NavBarComponent";
 
 function MyEventsPage() {
