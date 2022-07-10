@@ -62,6 +62,27 @@ function EventDetailsCard(props) {
       </Button>
     );
   };
+  const ButtonStatusConfirmed = () => {
+    return (
+      <Button
+        style={{
+          width: "100%",
+          height: "auto",
+          margin: "0",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "1.2rem 0",
+          border: `1px solid ${Colors.green}`,
+          background: "none",
+          color: `${Colors.green}`,
+        }}
+        disabled
+      >
+        Confirmed
+      </Button>
+    );
+  };
 
   function ActionButton(status) {
     switch (status) {
@@ -69,6 +90,8 @@ function EventDetailsCard(props) {
         return <ButtonStatusNone />;
       case "Pending":
         return <ButtonStatusPending />;
+      case "Confirmed":
+        return <ButtonStatusConfirmed />;
       default:
         return <></>;
     }
