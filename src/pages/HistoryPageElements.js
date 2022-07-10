@@ -6,6 +6,11 @@ export const Main = styled.div`
   height: inherit;
 `;
 
+export const ContentContainer = styled.div`
+  height: 100%;
+  background-color: ${Colors.veryLightGrey};
+`;
+
 export const EventContainer = styled.div`
   margin: 30px 20px;
   width: 60%;

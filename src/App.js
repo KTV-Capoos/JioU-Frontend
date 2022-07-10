@@ -6,6 +6,7 @@ import EventsPage from "./pages/EventsPage.js";
 import MyEventsPage from "./pages/MyEventsPage.js";
 import LoginPage from "./pages/LoginPage.js";
 import AboutMePage from "./pages/AboutMePage.js";
+import HistoryPage from "./pages/HistoryPage";
 
 export const App = () => {
   return (
@@ -30,7 +31,7 @@ export const App = () => {
           <AboutMePage />
         </Route>
         <Route exact path="/history">
-          <AboutMePage />
+          <HistoryPage />
         </Route>
       </Switch>
     </div>

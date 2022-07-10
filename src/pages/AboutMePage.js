@@ -10,10 +10,9 @@ import {
 import { Button } from "semantic-ui-react";
 import NavBarComponent from "../components/NavBarComponent";
 import ProfileForm from "../components/ProfileForm";
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function AboutMePage() {
-  const history = useHistory();
   return (
     <Main>
       <NavBarComponent />
@@ -21,9 +20,9 @@ function AboutMePage() {
         <HeaderContainer>
           <HeaderText>Profile</HeaderText>
           <ButtonContainer>
-            <Button onClick={() => history.push("/history")}>
-              My Past Events
-            </Button>
+            <Link to="/history">
+              <Button>My Past Events</Button>
+            </Link>
           </ButtonContainer>
         </HeaderContainer>
         <FormContainer>
