@@ -24,6 +24,7 @@ import {
 } from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
 import EventCardComponent from "../components/EventCardComponent";
+import NavBarComponent from "../components/NavBarComponent";
 
 function EventsPage() {
   const history = useHistory();
@@ -34,20 +35,6 @@ function EventsPage() {
   const handleDateFilter = (e, { value }) => {
     setDateFilter(value);
   };
-
-  const items = [
-    { key: "JioU", name: "Jio U" },
-    {
-      key: "myEvents",
-      // onclick: () => history.push("/myevents"),
-      name: "My Events",
-    },
-    {
-      key: "profile",
-      // onclick: () => history.push("profile"),
-      name: "Profile",
-    },
-  ];
 
   const categories = [
     {
@@ -74,9 +61,7 @@ function EventsPage() {
 
   return (
     <Main>
-      <NavBarContainer>
-        <Menu secondary items={items} activeIndex={1} />
-      </NavBarContainer>
+      <NavBarComponent />
       <ContentContainer>
         <EventContainer>
           <EventCardComponent
@@ -89,13 +74,6 @@ function EventsPage() {
           <EventCardComponent
             name={"Totebag Workshop"}
             price={7}
-            date={"21/7/2022"}
-            time={"10:00-12:00"}
-            location={"Central, Singapore"}
-          />
-
-          <EventCardComponent
-            name={"Painting Workshop"}
             date={"21/7/2022"}
             time={"10:00-12:00"}
             location={"Central, Singapore"}
