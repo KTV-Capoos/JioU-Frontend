@@ -9,7 +9,6 @@ import {
 } from "./EventCardElements";
 import Activity from "../assets/activity-placeholder.png";
 import { Image } from "semantic-ui-react";
-import { Colors } from "../Theme";
 
 const EventCardComponent = ({ name, price, date, time, location, image }) => {
   return (

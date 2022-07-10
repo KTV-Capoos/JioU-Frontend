@@ -11,14 +11,14 @@ import {
   FilterSectionTitle,
   MaxPriceContainer,
 } from "./EventsPageElements";
-import { Divider, Form, Radio, Checkbox, Input, Icon } from "semantic-ui-react";
+import { Divider, Form, Radio, Input, Icon } from "semantic-ui-react";
 import EventCardComponent from "../components/EventCardComponent";
 import NavBarComponent from "../components/NavBarComponent";
 
 function EventsPage() {
   const [dateFilter, setDateFilter] = useState("");
   const [budgetFilter, setBudgetFilter] = useState("");
-  const [freeFilter, setFreeFilter] = useState("");
+  const [freeFilter, setFreeFilter] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const handleDateFilter = (e, { value }) => {
     setDateFilter(value);
@@ -47,28 +47,15 @@ function EventsPage() {
       location: "Central, Singapore",
     },
   ];
-  const categories = [
-    {
-      key: "sports",
-      text: "sports",
-      value: "sports",
-    },
-    {
-      key: "food",
-      text: "food",
-      value: "food",
-    },
-    {
-      key: "outdoors",
-      text: "outdoors",
-      value: "outdoors",
-    },
-    {
-      key: "workshops",
-      text: "workshops",
-      value: "workshops",
-    },
-  ];
+
+  const checkFreeFilter = () => {
+    const checkBox = document.getElementById("freefilter");
+    if (checkBox.checked === true) {
+      setFreeFilter(true);
+    } else {
+      setFreeFilter(false);
+    }
+  };
 
   return (
     <Main>
@@ -80,16 +67,17 @@ function EventsPage() {
               let temp = event;
               console.log(searchValue);
               if (searchValue && !event.name.includes(searchValue)) {
-                return
+                return null;
               }
-
-              if (freeFilter && event.price === 0) {
-                temp = event;
+              if (freeFilter && event.price > 0) {
+                return null;
               }
-              console.log(freeFilter);
+              if (budgetFilter && event.price > budgetFilter) {
+                return null;
+              }
               if (temp) {
                 return (
-                  <Link to="/events">
+                  <Link to="/event" key={temp.name}>
                     <EventCardComponent
                       name={temp.name}
                       price={temp.price}
@@ -99,7 +87,7 @@ function EventsPage() {
                     />
                   </Link>
                 );
-              }
+              } else return null;
             })}
         </EventContainer>
         <FilterContainer>
@@ -147,20 +135,22 @@ function EventsPage() {
 
             <BudgetFilterContainer>
               <FilterSectionTitle>Budget</FilterSectionTitle>
-              <Checkbox
+              <input
+                type="checkbox"
+                id="freefilter"
                 label="Free"
-                value={"true"}
-                onChange={(e, { value }) => {
-                  if (value === "true") setFreeFilter(true) 
-                  else setFreeFilter(false);
-                }}
+                value={"free"}
+                onClick={checkFreeFilter}
+                style={{ marginRight: "8px" }}
               />
+              Free
               <MaxPriceContainer>
                 <div>Max Price (SGD): </div>
                 <Input
                   placeholder="50"
                   onChange={(e, { value }) => setBudgetFilter(value)}
                   type="number"
+                  disabled={!!freeFilter}
                 />
               </MaxPriceContainer>
             </BudgetFilterContainer>
