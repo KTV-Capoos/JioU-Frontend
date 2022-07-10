@@ -26,7 +26,7 @@ export const App = () => {
             price={10}
             organizer="NTUC Hub"
             description="Join us for a day of exploration at Jurong Lake Gardens! We will be doing many bonding activites, ranging from bonding games to portraiture sessions."
-            status="None" // None, Pending, Confirmed
+            status="Confirmed" // None, Pending, Confirmed
           />
         </Route>
       </Switch>

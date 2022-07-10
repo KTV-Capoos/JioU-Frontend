@@ -10,6 +10,18 @@ import { Colors } from "../Theme";
 import { Button } from "semantic-ui-react";
 
 function EventDetailsCard(props) {
+  const jioText = (status) => {
+    switch (status) {
+      case "None":
+        return "We Jio U to the event!";
+      case "Pending":
+        return "We are assessing everyone's responses to our Jio.";
+      case "Confirmed":
+        return "We have confirmed your slot. See you there!";
+      default:
+        return "";
+    }
+  };
   const ButtonStatusNone = () => {
     return (
       <Button
@@ -67,7 +79,7 @@ function EventDetailsCard(props) {
       <Title>{props.title}</Title>
       <DisplayImage src={JurongLakeGardens} />
       <Description>{props.description}</Description>
-      <Description>We Jio U to the event!</Description>
+      <Description>{jioText(props.status)}</Description>
       {ActionButton(props.status)}
     </Card>
   );
