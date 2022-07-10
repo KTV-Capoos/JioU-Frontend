@@ -20,12 +20,13 @@ export const App = () => {
         </Route>
         <Route exact path="/event">
           <EventPage
+            title="Exploring the Gardens"
             dateTime="Saturday, July 9 2022 at 10:00 PM to Sunday, July 10 2022 at 6:00 AM"
             location="Jurong Lake Gardens"
             price={10}
             organizer="NTUC Hub"
             description="Join us for a day of exploration at Jurong Lake Gardens! We will be doing many bonding activites, ranging from bonding games to portraiture sessions."
-            status="Pending" // None, Pending, Confirmed
+            status="None" // None, Pending, Confirmed
           />
         </Route>
       </Switch>

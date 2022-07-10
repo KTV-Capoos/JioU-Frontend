@@ -1,56 +1,9 @@
 import React from "react";
-import {
-  Description,
-  DisplayImage,
-  LeftContainer,
-  Main,
-  RightContainer,
-  Title,
-} from "./EventPageElements";
-import { Button } from "semantic-ui-react";
-import { Colors } from "../Theme";
-import JurongLakeGardens from "../assets/Jurong Lake Gardens.jpg";
+import { Main, LeftContainer, RightContainer } from "./EventPageElements";
 import EventInfoCard from "../components/EventInfoCard";
+import EventDetailsCard from "../components/EventDetailsCard";
 
 function EventPage(props) {
-  const ButtonStatusNone = () => {
-    return (
-      <Button
-        style={{
-          width: "100%",
-          background: Colors.primary,
-          color: "white",
-        }}
-      >
-        I accept the Jio!
-      </Button>
-    );
-  };
-  const ButtonStatusPending = () => {
-    return (
-      <Button
-        style={{
-          width: "100%",
-          border: `1px solid ${Colors.grey}`,
-          background: "none",
-          color: `${Colors.grey}`,
-        }}
-        disabled
-      >
-        Pending Confirmation
-      </Button>
-    );
-  };
-
-  function ActionButton(status) {
-    switch (status) {
-      case "Pending":
-        return <ButtonStatusPending />;
-      default:
-        return <ButtonStatusNone />;
-    }
-  }
-
   return (
     <Main>
       <LeftContainer>
@@ -62,11 +15,11 @@ function EventPage(props) {
         />
       </LeftContainer>
       <RightContainer>
-        <Title>Exploring the Gardens</Title>
-        <DisplayImage src={JurongLakeGardens} />
-        <Description>{props.description}</Description>
-        <Description>We jio you to the event!</Description>
-        {ActionButton(props.status)}
+        <EventDetailsCard
+          title={props.title}
+          description={props.description}
+          status={props.status}
+        />
       </RightContainer>
     </Main>
   );
