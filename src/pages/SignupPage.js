@@ -88,7 +88,7 @@ function Signup() {
           />
 
           <StyledFormField
-            name="dateOfBirth"
+            name="dob"
             type="text"
             label="Date of Birth (DD/MM/YYYY)"
             placeholder="Date of Birth"
@@ -96,7 +96,7 @@ function Signup() {
             pattern={
               /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/i
             }
-            error={errors.dateOfBirth}
+            error={errors.dob}
             errorMessage="Please check the date of birth"
             register={register}
           />
@@ -117,25 +117,25 @@ function Signup() {
           />
 
           <StyledFormField
-            name="mobileNumber"
+            name="mobile_number"
             type="tel"
             label="Mobile Number (8 digits)"
             placeholder="Mobile Number"
             isRequired={true}
             pattern={/^[0-9]{8}$/i}
-            error={errors.mobileNumber}
+            error={errors.mobile_number}
             errorMessage="Please check the mobile number"
             register={register}
           />
 
           <StyledFormField
-            name="emergencyContactNumber"
+            name="nok"
             type="tel"
             label="Emergency Contact Number (Optional, 8 digits)"
             placeholder="Emergency Contact Number"
             isRequired={false}
             pattern={/^[0-9]{8}$/i}
-            error={errors.emergencyContactNumber}
+            error={errors.nok}
             errorMessage="Please check the emergency contact number"
             register={register}
           />
