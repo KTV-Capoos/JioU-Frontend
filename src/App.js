@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage.js";
 import SignupPage from "./pages/SignupPage.js";
 import LoginPage from "./pages/LoginPage.js";
+import EventPage from "./pages/EventPage.js";
 
 export const App = () => {
   return (
@@ -16,6 +17,9 @@ export const App = () => {
         </Route>
         <Route exact path="/login">
           <LoginPage />
+        </Route>
+        <Route exact path="/event">
+          <EventPage />
         </Route>
       </Switch>
     </div>
