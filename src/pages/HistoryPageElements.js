@@ -8,5 +8,11 @@ export const Main = styled.div`
 
 export const ContentContainer = styled.div`
   display: flex;
+  flex-direction: column;
   padding-top: 40px;
+`;
+
+export const EventContainer = styled.div`
+  margin: 30px 20px;
+  width: 60%;
 `;

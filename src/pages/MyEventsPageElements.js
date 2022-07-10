@@ -8,5 +8,16 @@ export const Main = styled.div`
 
 export const ContentContainer = styled.div`
   display: flex;
+  flex-direction: column;
   padding-top: 40px;
+`;
+
+export const HeaderText = styled.div`
+  margin: 30px 0px 0px 20px;
+  font-size: 3rem;
+`;
+
+export const EventContainer = styled.div`
+  margin: 20px;
+  width: 60%;
 `;

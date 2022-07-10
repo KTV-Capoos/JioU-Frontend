@@ -6,18 +6,26 @@ import { useForm } from "react-hook-form";
 import StyledFormField from "../components/StyledFormField";
 import StyledFormSelect from "../components/StyledFormSelect";
 import BackArrow from "../assets/Back Arrow.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { post } from "../utils/request";
 
 function Signup() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     setValue,
-    triggerValidation,
+    trigger,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+    post("/auth/signup/", data)
+      .then((res) => {
+        navigate("/login", { replace: true });
+      })
+      .catch((err) => {
+        document.getElementById("error").innerText = err.response.data.error;
+      });
     console.log(data);
     console.log(errors);
   };
@@ -26,7 +34,7 @@ function Signup() {
     <Main>
       <TitleSection>
         <Link to="/">
-          <img src={BackArrow} width="25rem" />
+          <img src={BackArrow} width="25rem" alt="<" />
         </Link>
         <Title>Sign Up</Title>
       </TitleSection>
@@ -43,7 +51,6 @@ function Signup() {
             errorMessage="Please check the username"
             register={register}
           />
-
           <StyledFormField
             name="email"
             type="email"
@@ -61,7 +68,7 @@ function Signup() {
           <StyledFormField
             name="password"
             type="password"
-            label="Password"
+            label="Password (At least 6 characters long)"
             placeholder="Password"
             isRequired={true}
             pattern={/^[a-zA-Z0-9]{6,}$/}
@@ -82,15 +89,13 @@ function Signup() {
           />
 
           <StyledFormField
-            name="dateOfBirth"
+            name="dob"
             type="text"
-            label="Date of Birth (DD/MM/YYYY)"
+            label="Date of Birth (YYYY-MM-DD)"
             placeholder="Date of Birth"
             isRequired={true}
-            pattern={
-              /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/i
-            }
-            error={errors.dateOfBirth}
+            pattern={/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/i}
+            error={errors.dob}
             errorMessage="Please check the date of birth"
             register={register}
           />
@@ -105,31 +110,31 @@ function Signup() {
               { text: "Other", value: "others" },
             ]}
             setValue={setValue}
-            triggerValidation={triggerValidation}
+            triggerValidation={trigger}
             isRequired={true}
             register={register}
           />
 
           <StyledFormField
-            name="mobileNumber"
+            name="mobile_number"
             type="tel"
             label="Mobile Number (8 digits)"
             placeholder="Mobile Number"
             isRequired={true}
             pattern={/^[0-9]{8}$/i}
-            error={errors.mobileNumber}
+            error={errors.mobile_number}
             errorMessage="Please check the mobile number"
             register={register}
           />
 
           <StyledFormField
-            name="emergencyContactNumber"
+            name="nok"
             type="tel"
             label="Emergency Contact Number (Optional, 8 digits)"
             placeholder="Emergency Contact Number"
             isRequired={false}
             pattern={/^[0-9]{8}$/i}
-            error={errors.emergencyContactNumber}
+            error={errors.nok}
             errorMessage="Please check the emergency contact number"
             register={register}
           />
@@ -148,7 +153,7 @@ function Signup() {
               { text: "Other", value: "others" },
             ]}
             setValue={setValue}
-            triggerValidation={triggerValidation}
+            triggerValidation={trigger}
             isRequired={true}
             register={register}
           />
@@ -162,7 +167,7 @@ function Signup() {
               { text: "Other", value: "others" },
             ]}
             setValue={setValue}
-            triggerValidation={triggerValidation}
+            triggerValidation={trigger}
             isRequired={true}
             register={register}
           />
@@ -178,7 +183,7 @@ function Signup() {
               { text: "Other", value: "others" },
             ]}
             setValue={setValue}
-            triggerValidation={triggerValidation}
+            triggerValidation={trigger}
             isRequired={true}
             register={register}
           />
@@ -215,7 +220,7 @@ function Signup() {
             errorMessage="Please check the dietary requirements"
             register={register}
           />
-
+          <div id="error" />
           <Button
             primary
             style={{ backgroundColor: `${Colors.primary}`, width: "100%" }}

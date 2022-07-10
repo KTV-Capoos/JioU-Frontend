@@ -5,25 +5,31 @@ import { Colors } from "../Theme";
 import { useForm } from "react-hook-form";
 import StyledFormField from "../components/StyledFormField";
 import BackArrow from "../assets/Back Arrow.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { post } from "../utils/request";
 
 function Loginpage() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    alert(JSON.stringify(data));
-    console.log(data);
-    console.log(errors);
+    post("/auth/login/", data)
+      .then((res) => {
+        navigate("/events", { replace: true });
+      })
+      .catch((err) => {
+        document.getElementById("error").innerText = err.response.data.error;
+      });
   };
 
   return (
     <Main>
       <TitleSection>
         <Link to="/">
-          <img src={BackArrow} width="25rem" />
+          <img src={BackArrow} width="25rem" alt="<" />
         </Link>
         <Title>Login</Title>
       </TitleSection>
@@ -52,7 +58,7 @@ function Loginpage() {
             errorMessage="Please check the password"
             register={register}
           />
-
+          <div id="error"></div>
           <Button
             primary
             style={{ backgroundColor: `${Colors.primary}`, width: "100%" }}
