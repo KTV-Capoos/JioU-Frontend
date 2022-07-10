@@ -6,7 +6,8 @@ import { useForm } from "react-hook-form";
 import StyledFormField from "../components/StyledFormField";
 import StyledFormSelect from "../components/StyledFormSelect";
 import BackArrow from "../assets/Back Arrow.svg";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import {post} from "../utils/request";
 
 function Signup() {
   const {
@@ -17,7 +18,15 @@ function Signup() {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+    post("/auth/signup/", data).then(
+      (res) => {
+        Navigate("/login", { replace: true });
+      }
+    ).catch(
+      (err) => {
+        document.getElementById("error").innerText = err.response.data.error;
+      }
+    )
     console.log(data);
     console.log(errors);
   };
@@ -26,7 +35,7 @@ function Signup() {
     <Main>
       <TitleSection>
         <Link to="/">
-          <img src={BackArrow} width="25rem" />
+          <img src={BackArrow} width="25rem" alt="<"/>
         </Link>
         <Title>Sign Up</Title>
       </TitleSection>
@@ -215,7 +224,7 @@ function Signup() {
             errorMessage="Please check the dietary requirements"
             register={register}
           />
-
+          <div id="error"></div>
           <Button
             primary
             style={{ backgroundColor: `${Colors.primary}`, width: "100%" }}
