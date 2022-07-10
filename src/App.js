@@ -26,6 +26,7 @@ export const App = () => {
         <Route exact path="/login">
           <LoginPage />
         </Route>
+        <Route exact path="/profile">
           <AboutMePage />
         </Route>
         <Route exact path="/history">
