@@ -40,4 +40,6 @@ export const EventDescription = styled.div`
 export const ImageContainer = styled.div`
   background-color: white;
   width: 150px;
+  display: flex;
+  align-item: center;
 `;

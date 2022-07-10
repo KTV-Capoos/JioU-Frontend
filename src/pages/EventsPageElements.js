@@ -29,7 +29,6 @@ export const FilterContainer = styled.div`
 
 export const FilterCard = styled.div`
   background-color: white;
-
   border-radius: 10px;
 `;
 

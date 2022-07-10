@@ -7,7 +7,9 @@ function NavBarComponent() {
   return (
     <NavBarContainer>
       <Menu style={{ width: "100%" }}>
-        <Menu.Item name="Jio U" />
+        <Link to="/events">
+          <Menu.Item name="Jio U" />
+        </Link>
         <Menu.Menu position="right">
           <Link to="/myevents">
             <Menu.Item name="My Events" />

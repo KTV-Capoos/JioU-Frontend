@@ -25,8 +25,8 @@ import NavBarComponent from "../components/NavBarComponent";
 
 function EventsPage() {
   const [dateFilter, setDateFilter] = useState("");
-  const [categoriesFilter, setCategoriesFilter] = useState("");
   const [budgetFilter, setBudgetFilter] = useState("");
+  const [freeFilter, setFreeFilter] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const handleDateFilter = (e, { value }) => {
     setDateFilter(value);
@@ -35,7 +35,7 @@ function EventsPage() {
   const eventDetails = [
     {
       name: "Badminton Session",
-      price: 2,
+      price: 0,
       date: "9/7/2022",
       time: "08:00-10:00",
       location: "Central, Singapore",
@@ -44,6 +44,13 @@ function EventsPage() {
       name: "Totebag Workshop",
       price: 7,
       date: "21/7/2022",
+      time: "10:00-12:00",
+      location: "Central, Singapore",
+    },
+    {
+      name: "Photography Workshop",
+      price: 10,
+      date: "22/7/2022",
       time: "10:00-12:00",
       location: "Central, Singapore",
     },
@@ -78,42 +85,25 @@ function EventsPage() {
         <EventContainer>
           {eventDetails &&
             eventDetails.map((event) => {
+              let temp = event;
               if (searchValue && event.name.includes(searchValue)) {
+                temp = event;
+              }
+              if (freeFilter === true && event.price === 0) {
+                temp = event;
+              }
+              if (temp) {
                 return (
                   <EventCardComponent
-                    name={event.name}
-                    price={event.price}
-                    date={event.date}
-                    time={event.time}
-                    location={event.location}
-                  />
-                );
-              } else if (searchValue.length < 1) {
-                return (
-                  <EventCardComponent
-                    name={event.name}
-                    price={event.price}
-                    date={event.date}
-                    time={event.time}
-                    location={event.location}
+                    name={temp.name}
+                    price={temp.price}
+                    date={temp.date}
+                    time={temp.time}
+                    location={temp.location}
                   />
                 );
               }
             })}
-          {/* <EventCardComponent
-            name={"Badminton Session"}
-            price={2}
-            date={"9/7/2022"}
-            time={"08:00-10:00"}
-            location={"Central, Singapore"}
-          />
-          <EventCardComponent
-            name={"Totebag Workshop"}
-            price={7}
-            date={"21/7/2022"}
-            time={"10:00-12:00"}
-            location={"Central, Singapore"}
-          /> */}
         </EventContainer>
         <FilterContainer>
           <Input
@@ -157,22 +147,17 @@ function EventsPage() {
               </Form>
             </DatesFilterContainer>
             <Divider />
-            <CategoriesFilterContainer>
-              <FilterSectionTitle>Categories</FilterSectionTitle>
-              <Dropdown
-                placeholder="Categories"
-                fluid
-                selection
-                options={categories}
-                onChange={(e, { value }) => {
-                  setCategoriesFilter(value);
-                }}
-              />
-            </CategoriesFilterContainer>
-            <Divider />
+
             <BudgetFilterContainer>
               <FilterSectionTitle>Budget</FilterSectionTitle>
-              <Checkbox label="Free" />
+              <Checkbox
+                label="Free"
+                value={true}
+                onChange={(e, { value }) => {
+                  if (value === true) setFreeFilter(true);
+                  else setFreeFilter(false);
+                }}
+              />
               <MaxPriceContainer>
                 <div>Max Price (SGD):</div>
                 <Input

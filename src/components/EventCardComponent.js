@@ -7,6 +7,8 @@ import {
   EventTitle,
   EventDescription,
 } from "./EventCardElements";
+import Activity from "../assets/activity-placeholder.png";
+import { Image } from "semantic-ui-react";
 
 const EventCardComponent = ({ name, price, date, time, location, image }) => {
   return (
@@ -15,14 +17,18 @@ const EventCardComponent = ({ name, price, date, time, location, image }) => {
         <EventHeaderContainer>
           <EventTitle>{name}</EventTitle>
         </EventHeaderContainer>
-        {price && (
-          <EventDescription>Price: ${price} per person</EventDescription>
+        {price >= 0 && (
+          <EventDescription>
+            Price: {price === 0 ? "Free" : `$${price} per person`}
+          </EventDescription>
         )}
         <EventDescription>Date: {date}</EventDescription>
         <EventDescription>Time: {time}</EventDescription>
         <EventDescription>Location: {location}</EventDescription>
       </TextContainer>
-      <ImageContainer />
+      <ImageContainer>
+        <Image src={Activity} />
+      </ImageContainer>
     </EventCard>
   );
 };
