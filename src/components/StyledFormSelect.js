@@ -12,7 +12,7 @@ function SignupFormSelect(props) {
         options={props.options}
         onChange={async (e, { name, value }) => {
           props.setValue(name, value);
-          await props.triggerValidation({ name });
+          // await props.triggerValidation({ name });
         }}
       />
       {props.error && <ErrorMessage>Error</ErrorMessage>}
