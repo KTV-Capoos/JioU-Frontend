@@ -78,7 +78,7 @@ function Signup() {
           />
 
           <StyledFormField
-            name="fullName"
+            name="full_name"
             type="text"
             label="Full Name (as in NRIC)"
             placeholder="Full Name"
@@ -189,7 +189,7 @@ function Signup() {
           />
 
           <StyledFormField
-            name="anyMedicalConditions"
+            name="medical_conditions"
             type="text"
             label="Any Medical Conditions (If none, please put `NIL`)"
             placeholder="Any Medical Conditions"
@@ -211,7 +211,7 @@ function Signup() {
           />
 
           <StyledFormField
-            name="dietaryRequirements"
+            name="dietary_restrictions"
             type="text"
             label="Dietary Requirements (If none, please put `NIL`)"
             placeholder="Dietary Requirements"

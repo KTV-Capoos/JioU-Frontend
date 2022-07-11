@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   FormContainer,
   HeaderContainer,
@@ -11,8 +11,21 @@ import { Button } from "semantic-ui-react";
 import NavBarComponent from "../components/NavBarComponent";
 import ProfileForm from "../components/ProfileForm";
 import { Link } from "react-router-dom";
+import { get } from "../utils/request";
 
 function AboutMePage() {
+  const [profile, setProfile] = useState(null);
+
+  useEffect(() => {
+    get("/auth/info")
+      .then((response) => {
+        setProfile(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <Main>
       <NavBarComponent />
@@ -26,21 +39,23 @@ function AboutMePage() {
           </ButtonContainer>
         </HeaderContainer>
         <FormContainer>
-          <ProfileForm
-            fullName={"Sally"}
-            userName={"sally"}
-            gender={"Female"}
-            DOB={"12/06/1999"}
-            email={"sally@gmail.com"}
-            mobile={87654568}
-            emergencyContact={98765678}
-            religion={"taoist"}
-            nationality={"China citizen"}
-            ethnicity={"asian"}
-            medical={"NIL"}
-            allergies={"NIL"}
-            dietary={"NIL"}
-          />
+          {profile && (
+            <ProfileForm
+              fullName={profile.full_name}
+              userName={profile.username}
+              gender={profile.gender}
+              DOB={profile.dob}
+              email={profile.email}
+              mobile={profile.mobile_number}
+              emergencyContact={profile.nok}
+              religion={profile.religion}
+              nationality={profile.nationality}
+              ethnicity={profile.ethnicity}
+              medical={profile.medical_conditions}
+              allergies={profile.allergies}
+              dietary={profile.dietary_restrictions}
+            />
+          )}
         </FormContainer>
       </ContentContainer>
     </Main>
