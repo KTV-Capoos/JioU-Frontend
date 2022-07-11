@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Main,
   ContentContainer,
@@ -7,17 +7,20 @@ import {
 } from "./MyEventsPageElements";
 import EventCardComponent from "../components/EventCardComponent";
 import NavBarComponent from "../components/NavBarComponent";
+import { get } from "../utils/request";
 
 function MyEventsPage() {
-  const myEvents = [
-    {
-      name: "Rose Making Workshop",
-      price: 7,
-      date: "11/7/2022",
-      time: "10:00-12:00",
-      location: "Central, Singapore",
-    },
-  ];
+  const [myEvents, setMyEvents ] = useState(null);
+
+  useEffect(() => {
+    get("/attendance/my_events")
+      .then((response) => {
+        setMyEvents(response.data.events);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <Main>
