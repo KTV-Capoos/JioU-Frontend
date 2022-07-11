@@ -9,6 +9,7 @@ import {
 } from "./EventCardElements";
 import Activity from "../assets/activity-placeholder.png";
 import { Image } from "semantic-ui-react";
+import {BACKEND_URL} from "../utils/constants"
 
 const EventCardComponent = ({ name, price, date, time, location, image }) => {
   return (
@@ -27,7 +28,7 @@ const EventCardComponent = ({ name, price, date, time, location, image }) => {
         <EventDescription>Location: {location}</EventDescription>
       </TextContainer>
       <ImageContainer>
-        <Image src={Activity} />
+        <Image src={`${BACKEND_URL}${image}` ?? Activity} />
       </ImageContainer>
     </EventCard>
   );

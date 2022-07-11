@@ -71,6 +71,7 @@ function EventsPage() {
                       date={temp.event_date}
                       time={temp.event_time}
                       location={temp.event_location}
+                      image={temp.event_image}
                     />
                   </Link>
                 );
