@@ -14,7 +14,7 @@ import {
 import { Divider, Form, Radio, Input, Icon } from "semantic-ui-react";
 import EventCardComponent from "../components/EventCardComponent";
 import NavBarComponent from "../components/NavBarComponent";
-import {get} from "../utils/request";
+import { get } from "../utils/request";
 
 function EventsPage() {
   const [dateFilter, setDateFilter] = useState("");
@@ -26,15 +26,15 @@ function EventsPage() {
     setDateFilter(value);
   };
 
-  useEffect(
-    () => {
-      get("/events").then((response) => {
+  useEffect(() => {
+    get("/events")
+      .then((response) => {
         setEventDetails(response.data.events);
-      }).catch((err) => {
-        console.log(err);
       })
-    }, []
-  )
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const checkFreeFilter = () => {
     const checkBox = document.getElementById("freefilter");
