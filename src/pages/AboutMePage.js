@@ -41,7 +41,7 @@ function AboutMePage() {
         <FormContainer>
           {profile && (
             <ProfileForm
-              fullName={"Sally"}
+              fullName={profile.full_name}
               userName={profile.username}
               gender={profile.gender}
               DOB={profile.dob}
