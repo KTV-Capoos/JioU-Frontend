@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Main,
@@ -14,39 +14,27 @@ import {
 import { Divider, Form, Radio, Input, Icon } from "semantic-ui-react";
 import EventCardComponent from "../components/EventCardComponent";
 import NavBarComponent from "../components/NavBarComponent";
+import {get} from "../utils/request";
 
 function EventsPage() {
   const [dateFilter, setDateFilter] = useState("");
   const [budgetFilter, setBudgetFilter] = useState("");
   const [freeFilter, setFreeFilter] = useState(false);
   const [searchValue, setSearchValue] = useState("");
+  const [eventDetails, setEventDetails] = useState(null);
   const handleDateFilter = (e, { value }) => {
     setDateFilter(value);
   };
 
-  const eventDetails = [
-    {
-      name: "Badminton Session",
-      price: 0,
-      date: "9/7/2022",
-      time: "08:00-10:00",
-      location: "Central, Singapore",
-    },
-    {
-      name: "Totebag Workshop",
-      price: 7,
-      date: "21/7/2022",
-      time: "10:00-12:00",
-      location: "Central, Singapore",
-    },
-    {
-      name: "Photography Workshop",
-      price: 10,
-      date: "22/7/2022",
-      time: "10:00-12:00",
-      location: "Central, Singapore",
-    },
-  ];
+  useEffect(
+    () => {
+      get("/events").then((response) => {
+        setEventDetails(response.data.events);
+      }).catch((err) => {
+        console.log(err);
+      })
+    }, []
+  )
 
   const checkFreeFilter = () => {
     const checkBox = document.getElementById("freefilter");
@@ -65,7 +53,6 @@ function EventsPage() {
           {eventDetails &&
             eventDetails.map((event) => {
               let temp = event;
-              console.log(searchValue);
               if (searchValue && !event.name.includes(searchValue)) {
                 return null;
               }
@@ -77,13 +64,13 @@ function EventsPage() {
               }
               if (temp) {
                 return (
-                  <Link to="/event" key={temp.name}>
+                  <Link to={`/event/${temp.event_id}`} key={temp.event_id}>
                     <EventCardComponent
-                      name={temp.name}
-                      price={temp.price}
-                      date={temp.date}
-                      time={temp.time}
-                      location={temp.location}
+                      name={temp.event_name}
+                      price={temp.event_price}
+                      date={temp.event_date}
+                      time={temp.event_time}
+                      location={temp.event_location}
                     />
                   </Link>
                 );
