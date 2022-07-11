@@ -21,7 +21,7 @@ function Loginpage() {
         navigate("/events", { replace: true });
       })
       .catch((err) => {
-        document.getElementById("error").innerText = err.response.data.error;
+        document.getElementById("password").errorMessage = err.response.data.error;
       });
   };
 
@@ -52,6 +52,7 @@ function Loginpage() {
             type="password"
             label="Password"
             placeholder="Password"
+            id="password"
             isRequired={true}
             pattern={/^[a-zA-Z0-9]{6,}$/}
             error={errors.password}
